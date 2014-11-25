@@ -98,7 +98,7 @@ module LXC
     # Wait for container to change status
     # @param [String] state name
     def wait(state)
-      if !LXC::Shell.valid_state?(status.state)
+      if !LXC::Shell.valid_state?(status.state.upcase)
         raise ArgumentError, "Invalid container state: #{state}"
       end
 
