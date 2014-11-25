@@ -141,6 +141,11 @@ module LXC
       lines.map { |l| parse_process_line(l) }
     end
 
+    def attach(command)
+      run("attach", "--", command)
+      exists?
+    end
+
     # Create a new container
     # @param [String] path path to container config file or [Hash] options
     # @return [Boolean]
