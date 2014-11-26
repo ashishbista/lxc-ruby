@@ -142,8 +142,9 @@ module LXC
     end
 
     def attach(command)
+      start
+      wait("RUNNING")
       run("attach", "--", command)
-      exists?
     end
 
     # Create a new container
